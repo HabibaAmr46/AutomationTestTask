@@ -20,6 +20,7 @@ public class E2ETEST extends TestBase{
 	{
 		
 		new HomePage(driver).
+			changeLanguageToEnglish().
 			goToLoginPage();
 		
 		new LoginPage(driver).

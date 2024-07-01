@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import Utility.ElementMethods;
 
@@ -26,13 +27,26 @@ public class HomePage {
 	private By priceOfVideo = By.xpath(".//*[@class='a-price-whole']");
 	private By addToCartButton = By.xpath(".//button[text()='Add to cart']");
 	private By nextButton = By.xpath("//a[text()='Next']");
+	
+	private By language_link=By.xpath("//*[@id='icp-nav-flyout']");
+	private By englishLink=By.xpath("//a[@href='#switch-lang=en_AE']");
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void goToLoginPage() throws InterruptedException {
+		Thread.sleep(1000);
 		ElementMethods.clickElement(driver, Account_Lists);
+	}
+	
+	public HomePage changeLanguageToEnglish() throws InterruptedException
+	{
+		Actions a=new Actions(driver);
+		a.moveToElement(driver.findElement(language_link)).build().perform();
+		ElementMethods.clickElement(driver, englishLink);
+		
+		return this;
 	}
 
 	public HomePage clickOnAll() throws InterruptedException {

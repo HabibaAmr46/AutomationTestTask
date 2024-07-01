@@ -36,12 +36,7 @@ public class TestBase {
 		driver.get(prop.getProperty("url"));
 		
 		
-		//Change Language to English
-		Actions a=new Actions(driver);
-		a.moveToElement(driver.findElement(By.xpath("//*[@id='icp-nav-flyout']"))).build().perform();
-		ElementMethods.clickElement(driver, By.xpath("//a[@href='#switch-lang=en_AE']"));
-		
-		Thread.sleep(1000);
+	
 		
 	}
 	
